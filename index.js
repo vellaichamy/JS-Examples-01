@@ -174,6 +174,12 @@ let result = arr05.reduce((accumulator,current)=>{
 },10);
 console.log(result);
 
+let arr06=[4];
+let [c,d=0]=arr06;
+console.log(a,b); 
+// =================================
+
+
 
 const appDiv = document.getElementById('app');
 appDiv.innerHTML =
