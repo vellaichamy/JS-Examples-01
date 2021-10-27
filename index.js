@@ -116,10 +116,68 @@ console.log(arr10[arr10.length-1]);
 
 // =================================
 
+let arr02 = ["ES5","ES6","ES7","ES8"];
+for(let elem in arr02){
+    console.log(elem);
+}
+
+for(let elem of arr02){
+  console.log(elem);
+}
+
+arr02.forEach((elem,index)=>{
+  console.log(elem,index);
+})
+
+let arr03 = ["One","Two","Three","Four","Five"];
+
+console.log(arr03.push("Six"));
+console.log(arr03);
+
+console.log(arr03.unshift("Test"));
+console.log(arr03);
+
+console.log(arr03.pop());
+console.log(arr03);
+
+console.log(arr03.shift());
+console.log(arr03);
+
+console.log(arr03.splice(2));
+console.log(arr03);
+
+let arr04=["One","Two","One","Three","Four","One","Five"];
+console.log(arr04.indexOf("One"));
+console.log(arr04.indexOf("One",3));
+console.log(arr04.indexOf("one"));
+
+
+console.log(arr04.lastIndexOf("One"));
+console.log(arr04.lastIndexOf("One",3));
+
+console.log(arr.includes("Three",));
+// ==============================
+
+let arr05=[2,3,6,4,5];
+arr05.map((elem,index)=>{
+    console.log(elem,index);
+});
+
+let nArr = arr05.map((elem)=>{
+  
+  return Math.sqrt(elem);
+})
+console.log(nArr);
+
+let result = arr05.reduce((accumulator,current)=>{
+  return accumulator+current;
+},10);
+console.log(result);
+
 
 const appDiv = document.getElementById('app');
 appDiv.innerHTML =
-  `<h1>JS Examples</h1>xValue =` +
+  `<h1>JavaScript Examples</h1>xValue =` +
   xValue +
   `<br> obj = ` +
   JSON.stringify(obj) +
