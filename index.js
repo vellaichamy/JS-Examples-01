@@ -104,6 +104,18 @@ function* gen1() {
 }
 const g1 = gen1();
 g1.next();
+// =================================
+
+let arr10 = [4,7,9];
+let arr11 = ["Hi",true,900];
+console.log(arr10);
+console.log(arr11[0]);
+console.log(arr11.length);
+console.log(arr10[arr10.length-1]);
+
+
+// =================================
+
 
 const appDiv = document.getElementById('app');
 appDiv.innerHTML =
