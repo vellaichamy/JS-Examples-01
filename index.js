@@ -219,6 +219,26 @@ var output = (function () {
 // output 1 as output. delete operator is used to delete a property from an object. Here x is not an object it's global variable of type number.
 console.log(output);
 
+var x2 = { foo : 1};
+var output = (function() {
+  delete x2.foo;
+  return x2.foo;
+})();
+
+console.log(output);
+
+var Employee = {
+  company: 'xyz'
+}
+var emp1 = Object.create(Employee);
+delete emp1.company
+console.log(emp1.company);
+
+// NFE (Named Function Expression)
+var foo = function bar() { return 12; };
+console.log(typeof foo());
+
+
 const appDiv = document.getElementById('app');
 appDiv.innerHTML =
   `<h1>JavaScript Examples</h1>xValue =` +
