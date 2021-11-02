@@ -237,6 +237,17 @@ console.log(emp1.company);
 // NFE (Named Function Expression)
 var foo = function bar() { return 12; };
 console.log(typeof foo());
+// ==========================================
+
+var salary = "1000$";
+
+(function () {
+  console.log("Original salary was " + salary);
+
+  var salary = "5000$";
+
+  console.log("My New Salary " + salary);
+})();
 
 
 const appDiv = document.getElementById('app');
