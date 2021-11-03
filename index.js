@@ -267,7 +267,76 @@ function User(name) {
 var person = (new User('xyz')['location'] = 'India');
 console.log(person);
 
+var result01 = (function myIIFEFunc(param1) {
+  console.log("Hi, I'm IIFE, " + param1);
+  return 1;
+})("Ugra");
+// outputs "Hi, I'm IIFE, Ugra!"
+// result variable will contain 1
+
+~function(){console.log("hi I'm IIFE")}()
+
+!function(){console.log("hi I'm IIFE")}()
++function(){console.log("hi I'm IIFE")}()
+-function(){console.log("hi I'm IIFE")}()
+
+// (function myIIFEFunc1 (){console.log("hi I'm IIFE");})();
+var i = function(){console.log("hi I'm IIFE")}();
+true && function(){ console.log("hi I'm IIFE") }();
+0, function(){ console.log("hi I'm IIFE") }();
+new function(){ console.log("hi I'm IIFE111") }
+new function(){ console.log("hi I'm IIFE") }()
 // ============================
+/* Lazy Instantiation skeleton for a singleton pattern */
+
+var MyNameSpace = {};
+MyNameSpace.Singleton = (function() {
+
+  // Private attribute that holds the single instance
+  var singletonInstance;  
+
+  // All of the normal code goes here
+  function constructor() {
+    // Private members
+    var privateVar1 = "Ugra";
+    var privateVar2 = [1,2,3,4,5];
+
+    function privateMethod1() {
+      // code stuff
+    }
+
+    function privateMethod1() {
+      // code stuff
+    }
+
+    return {
+      attribute1 : "Ugra",
+      publicMethod: function() {
+        alert("Ugra");// some code logic
+      }
+    }
+  }
+
+  return {
+    // public method (Global access point to Singleton object)
+    getInstance: function() {
+      //instance already exist then return  
+      if(!singletonInstance) {
+        singletonInstance = constructor();
+      }
+      return singletonInstance;           
+    }           
+  }
+
+})();   
+
+
+// getting access of publicMethod
+// console.log(MyNamespace.Singleton.getInstance().publicMethod());
+
+// ============================================
+
+
 
 const appDiv = document.getElementById('app');
 appDiv.innerHTML =
