@@ -270,36 +270,55 @@ console.log(person);
 var result01 = (function myIIFEFunc(param1) {
   console.log("Hi, I'm IIFE, " + param1);
   return 1;
-})("Ugra");
+})('Ugra');
 // outputs "Hi, I'm IIFE, Ugra!"
 // result variable will contain 1
 
-~function(){console.log("hi I'm IIFE")}()
+~(function () {
+  console.log("hi I'm IIFE");
+})();
 
-!function(){console.log("hi I'm IIFE")}()
-+function(){console.log("hi I'm IIFE")}()
--function(){console.log("hi I'm IIFE")}()
+!(function () {
+  console.log("hi I'm IIFE");
+})() +
+  (function () {
+    console.log("hi I'm IIFE");
+  })() -
+  (function () {
+    console.log("hi I'm IIFE");
+  })();
 
 // (function myIIFEFunc1 (){console.log("hi I'm IIFE");})();
-var i = function(){console.log("hi I'm IIFE")}();
-true && function(){ console.log("hi I'm IIFE") }();
-0, function(){ console.log("hi I'm IIFE") }();
-new function(){ console.log("hi I'm IIFE111") }
-new function(){ console.log("hi I'm IIFE") }()
+var i = (function () {
+  console.log("hi I'm IIFE");
+})();
+true &&
+  (function () {
+    console.log("hi I'm IIFE");
+  })();
+0,
+  (function () {
+    console.log("hi I'm IIFE");
+  })();
+new (function () {
+  console.log("hi I'm IIFE111");
+})();
+new (function () {
+  console.log("hi I'm IIFE");
+})();
 // ============================
 /* Lazy Instantiation skeleton for a singleton pattern */
 
 var MyNameSpace = {};
-MyNameSpace.Singleton = (function() {
-
+MyNameSpace.Singleton = (function () {
   // Private attribute that holds the single instance
-  var singletonInstance;  
+  var singletonInstance;
 
   // All of the normal code goes here
   function constructor() {
     // Private members
-    var privateVar1 = "Ugra";
-    var privateVar2 = [1,2,3,4,5];
+    var privateVar1 = 'Ugra';
+    var privateVar2 = [1, 2, 3, 4, 5];
 
     function privateMethod1() {
       // code stuff
@@ -310,52 +329,52 @@ MyNameSpace.Singleton = (function() {
     }
 
     return {
-      attribute1 : "Ugra",
-      publicMethod: function() {
-        alert("Ugra");// some code logic
-      }
-    }
+      attribute1: 'Ugra',
+      publicMethod: function () {
+        alert('Ugra'); // some code logic
+      },
+    };
   }
 
   return {
     // public method (Global access point to Singleton object)
-    getInstance: function() {
-      //instance already exist then return  
-      if(!singletonInstance) {
+    getInstance: function () {
+      //instance already exist then return
+      if (!singletonInstance) {
         singletonInstance = constructor();
       }
-      return singletonInstance;           
-    }           
-  }
-
-})();   
-
+      return singletonInstance;
+    },
+  };
+})();
 
 // getting access of publicMethod
 // console.log(MyNamespace.Singleton.getInstance().publicMethod());
 
 // ============================================
-function Clone(object){
+function Clone(object) {
   var newObject = {};
-  for(var key in object){
-  	newObject[key] = object[key];
+  for (var key in object) {
+    newObject[key] = object[key];
   }
   return newObject;
 }
 
-
-var objectLit = {foo : 'Bar'}; 
-var cloneObj = Clone(obj); // Clone is the function which you have to write 
+var objectLit = { foo: 'Bar' };
+var cloneObj = Clone(obj); // Clone is the function which you have to write
 console.log(cloneObj === Clone(objectLit)); // this should return false
 console.log(cloneObj == Clone(objectLit)); // this should return true
 
 var arr20 = [10, 32, 65, 2];
 for (let i = 0; i < arr20.length; i++) {
-  setTimeout(function(j) {
-    // return function () {
-      console.log('The index of this number is: ' + j)
-    // };
-  }(i), 3000);
+  setTimeout(
+    (function (j) {
+      // return function () {
+      console.log('The index of this number is: ' + j);
+      // };
+    })(i),
+    3000
+  );
 }
 
 // =========================================================
@@ -369,7 +388,7 @@ function Person(name, age, salary) {
   };
 }
 
-//Prototypal Inheritance 
+//Prototypal Inheritance
 // Employee.prototype = new Person("Nishant", 24,5000);
 
 // var emp1 = new Employee("Google");
@@ -380,10 +399,10 @@ function Person(name, age, salary) {
 // ============================
 
 var employee = {
-	name: "Ugra"
+  name: 'Ugra',
 };
 
-// Seal the object 
+// Seal the object
 Object.seal(employee);
 
 console.log(Object.isExtensible(employee)); // false
@@ -395,26 +414,44 @@ console.log(Object.isSealed(employee)); // true
 // employee.age = 30; // fails silently unless in strict mode
 
 var employee = {
-	name: "Ugra"
+  name: 'Ugra',
 };
 
 //Freeze the object
-Object.freeze(employee); 
+Object.freeze(employee);
 
-// Seal the object 
+// Seal the object
 Object.seal(employee);
 
 console.log(Object.isExtensible(employee)); // false
-console.log(Object.isSealed(employee));     // true
-console.log(Object.isFrozen(employee));     // true
-
+console.log(Object.isSealed(employee)); // true
+console.log(Object.isFrozen(employee)); // true
 
 // employee.name = "xyz"; // fails silently unless in strict mode
 // employee.age = 30;     // fails silently unless in strict mode
 // delete employee.name   // fails silently unless it's in strict mode
 
+// "use strict";
 
+var employee = {
+  name: 'Ugra',
+};
 
+//Freeze the object
+Object.freeze(employee);
+
+// Seal the object
+Object.seal(employee);
+
+console.log(Object.isExtensible(employee)); // false
+console.log(Object.isSealed(employee)); // true
+console.log(Object.isFrozen(employee)); // true
+
+// employee.name = "xyz"; // fails silently unless in strict mode
+// employee.age = 30;     // fails silently unless in strict mode
+// delete employee.name;  // fails silently unless it's in strict mode
+
+// =========================================================
 
 
 const appDiv = document.getElementById('app');
