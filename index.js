@@ -352,11 +352,69 @@ console.log(cloneObj == Clone(objectLit)); // this should return true
 var arr20 = [10, 32, 65, 2];
 for (let i = 0; i < arr20.length; i++) {
   setTimeout(function(j) {
-    return function () {
+    // return function () {
       console.log('The index of this number is: ' + j)
-    };
+    // };
   }(i), 3000);
 }
+
+// =========================================================
+
+function Person(name, age, salary) {
+  this.name = name;
+  this.age = age;
+  this.salary = salary;
+  this.incrementSalary = function (byValue) {
+    this.salary = this.salary + byValue;
+  };
+}
+
+//Prototypal Inheritance 
+// Employee.prototype = new Person("Nishant", 24,5000);
+
+// var emp1 = new Employee("Google");
+
+// console.log(emp1 instanceof Person); // true
+// console.log(emp1 instanceof Employee); // true
+
+// ============================
+
+var employee = {
+	name: "Ugra"
+};
+
+// Seal the object 
+Object.seal(employee);
+
+console.log(Object.isExtensible(employee)); // false
+console.log(Object.isSealed(employee)); // true
+
+// delete employee.name // fails silently unless it's in strict mode
+
+// Trying to add new property will give an error
+// employee.age = 30; // fails silently unless in strict mode
+
+var employee = {
+	name: "Ugra"
+};
+
+//Freeze the object
+Object.freeze(employee); 
+
+// Seal the object 
+Object.seal(employee);
+
+console.log(Object.isExtensible(employee)); // false
+console.log(Object.isSealed(employee));     // true
+console.log(Object.isFrozen(employee));     // true
+
+
+// employee.name = "xyz"; // fails silently unless in strict mode
+// employee.age = 30;     // fails silently unless in strict mode
+// delete employee.name   // fails silently unless it's in strict mode
+
+
+
 
 
 const appDiv = document.getElementById('app');
