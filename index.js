@@ -335,7 +335,28 @@ MyNameSpace.Singleton = (function() {
 // console.log(MyNamespace.Singleton.getInstance().publicMethod());
 
 // ============================================
+function Clone(object){
+  var newObject = {};
+  for(var key in object){
+  	newObject[key] = object[key];
+  }
+  return newObject;
+}
 
+
+var objectLit = {foo : 'Bar'}; 
+var cloneObj = Clone(obj); // Clone is the function which you have to write 
+console.log(cloneObj === Clone(objectLit)); // this should return false
+console.log(cloneObj == Clone(objectLit)); // this should return true
+
+var arr20 = [10, 32, 65, 2];
+for (let i = 0; i < arr20.length; i++) {
+  setTimeout(function(j) {
+    return function () {
+      console.log('The index of this number is: ' + j)
+    };
+  }(i), 3000);
+}
 
 
 const appDiv = document.getElementById('app');
