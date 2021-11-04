@@ -453,24 +453,25 @@ console.log(Object.isFrozen(employee)); // true
 
 // =========================================================
 
-var z = 1, y = z = typeof y;
+var z = 1,
+  y = (z = typeof y);
 console.log(y);
-(function() {
+(function () {
   console.log("Hi, I'm IIFE!");
 })();
 // outputs "Hi, I'm IIFE!"
 // =============================
 // merge two JavaScript Object dynamically
 var person = {
-	name : 'John',
-	age  : 24
-}
+  name: 'John',
+  age: 24,
+};
 
 var address = {
-	addressLine1 : 'Some Location x',
-	addressLine2 : 'Some Location y',
-	city : 'NewYork'
-} 
+  addressLine1: 'Some Location x',
+  addressLine2: 'Some Location y',
+  city: 'NewYork',
+};
 
 // const merge = (toObj, fromObj) => Object.assign(toObj, fromObj);
 
@@ -485,38 +486,37 @@ function merge(toObj, fromObj) {
       }
     }
     return toObj;
-  }else{
-  	throw "Merge function can apply only on object";
+  } else {
+    throw 'Merge function can apply only on object';
   }
 }
 
-console.log(merge(person , address)); 
+console.log(merge(person, address));
 // ===========================
 var employeeId = '1234abe';
-(function() {
-	
-	var employeeId = '122345';
-	(function() {
-		var employeeId = 'abc1234';
-	}());
+(function () {
+  var employeeId = '122345';
+  (function () {
+    var employeeId = 'abc1234';
+  })();
   console.log(employeeId);
-}());
+})();
 
 // =====================================
 
-(function() {
-	console.log(typeof displayFunc);
-	var displayFunc = function(){
-		console.log("Hi I am inside displayFunc");
-	}
+(function () {
   console.log(typeof displayFunc);
-}());
+  var displayFunc = function () {
+    console.log('Hi I am inside displayFunc');
+  };
+  console.log(typeof displayFunc);
+})();
 
 // ==========================
 var employeeId = 'abc123';
-function foo(){
-	employeeId = '123bcd';
-	return;
+function foo() {
+  employeeId = '123bcd';
+  return;
 }
 foo();
 console.log(employeeId);
@@ -526,13 +526,13 @@ console.log(employeeId);
 var employeeId = 'abc123';
 
 function foo() {
-	employeeId = '123bcd';
-	return;
+  employeeId = '123bcd';
+  return;
 
-	// function employeeId() {}
+  // function employeeId() {}
 }
 foo();
-console.log('foo()=====>',employeeId);
+console.log('foo()=====>', employeeId);
 
 // ==================================================
 var employeeId = 'abc123';
@@ -550,53 +550,81 @@ var employeeId = 'abc123';
 var employeeId = 'abc123';
 
 function foo00() {
-	employeeId();
-	return;
+  employeeId();
+  return;
 
-	function employeeId() {
-		console.log('====?',typeof employeeId);
-	}
+  function employeeId() {
+    console.log('====?', typeof employeeId);
+  }
 }
 foo00();
 
 // =============================
 function foo01() {
-	employeeId1();
-	var product = 'Car'; 
-	return;
+  employeeId1();
+  var product = 'Car';
+  return;
 
-	function employeeId1() {
-		console.log('product====>0',product);
-	}
+  function employeeId1() {
+    console.log('product====>0', product);
+  }
 }
 foo01();
 
 // ===========================
 
 (function foo() {
-	bar();
+  bar();
 
-	function bar() {
-		abc();
-		console.log(typeof abc);
-	}
+  function bar() {
+    abc();
+    console.log(typeof abc);
+  }
 
-	function abc() {
-		console.log(typeof bar);
-	}
-}());
+  function abc() {
+    console.log(typeof bar);
+  }
+})();
 
 // ===========================
 
+(function () {
+  'use strict';
+
+  var person = {
+    name: 'John',
+  };
+  person.salary = '10000$';
+  person['country'] = 'USA';
+
+  Object.defineProperty(person, 'phoneNo', {
+    value: '8888888888',
+    enumerable: true,
+  });
+
+  console.log(Object.keys(person));
+})();
+
+// ======================================
+
+(function() {
+	'use strict';
+
+	var person = {
+		name: 'John'
+	};
+	person.salary = '10000$';
+	person['country'] = 'USA';
+
+	Object.defineProperty(person, 'phoneNo', {
+		value: '8888888888',
+		enumerable: false
+	})
+
+	console.log((person)); 
+})();
 
 
-
-
-
-
- 
-/* Now person should have 5 properties 
-name , age , addressLine1 , addressLine2 , city */
 
 
 const appDiv = document.getElementById('app');
