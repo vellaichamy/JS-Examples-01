@@ -491,6 +491,79 @@ function merge(toObj, fromObj) {
 }
 
 console.log(merge(person , address)); 
+// ===========================
+var employeeId = '1234abe';
+(function() {
+	
+	var employeeId = '122345';
+	(function() {
+		var employeeId = 'abc1234';
+	}());
+  console.log(employeeId);
+}());
+
+// =====================================
+
+(function() {
+	console.log(typeof displayFunc);
+	var displayFunc = function(){
+		console.log("Hi I am inside displayFunc");
+	}
+  console.log(typeof displayFunc);
+}());
+
+// ==========================
+var employeeId = 'abc123';
+function foo(){
+	employeeId = '123bcd';
+	return;
+}
+foo();
+console.log(employeeId);
+
+// =================
+
+var employeeId = 'abc123';
+
+function foo() {
+	employeeId = '123bcd';
+	return;
+
+	// function employeeId() {}
+}
+foo();
+console.log(employeeId);
+
+// ==================================================
+var employeeId = 'abc123';
+
+// function foo() {
+// 	employeeId();
+// 	return;
+
+// 	function employeeId() {
+// 		console.log(typeof employeeId);
+// 	}
+// }
+// foo();
+// =============
+var employeeId = 'abc123';
+
+function foo() {
+	employeeId();
+	return;
+
+	function employeeId() {
+		console.log('====?',typeof employeeId);
+	}
+}
+foo();
+
+
+
+
+
+
 
  
 /* Now person should have 5 properties 
