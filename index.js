@@ -607,89 +607,88 @@ foo01();
 
 // ======================================
 
-(function() {
-	'use strict';
+(function () {
+  'use strict';
 
-	var person = {
-		name: 'John'
-	};
-	person.salary = '10000$';
-	person['country'] = 'USA';
+  var person = {
+    name: 'John',
+  };
+  person.salary = '10000$';
+  person['country'] = 'USA';
 
-	Object.defineProperty(person, 'phoneNo', {
-		value: '8888888888',
-		enumerable: false
-	})
+  Object.defineProperty(person, 'phoneNo', {
+    value: '8888888888',
+    enumerable: false,
+  });
 
-	console.log((person)); 
+  console.log(person);
   console.log(Object.keys(person));
 })();
 // ======================================
 
-(function() {
-	var objA = new Object({foo: "foo"});
-	var objB = new Object({foo: "foo"});
-	console.log(objA == objB);
-	console.log(objA === objB);
-}());
+(function () {
+  var objA = new Object({ foo: 'foo' });
+  var objB = new Object({ foo: 'foo' });
+  console.log(objA == objB);
+  console.log(objA === objB);
+})();
 
 // =====================================
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = Object.create({
-		foo: 'foo'
-	});
-	console.log('1======>',objA == objB);
-	console.log('2======>',objA === objB);
-}());
+(function () {
+  var objA = Object.create({
+    foo: 'foo',
+  });
+  var objB = Object.create({
+    foo: 'foo',
+  });
+  console.log('1======>', objA == objB);
+  console.log('2======>', objA === objB);
+})();
 
 // ============================
 
-
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = objA;
-	console.log(objA == objB);
-	console.log(objA === objB);
-	console.log(objA.toString() == objB.toString());
-	console.log(objA.toString() === objB.toString());
-}());
+(function () {
+  var objA = Object.create({
+    foo: 'foo',
+  });
+  var objB = objA;
+  console.log(objA == objB);
+  console.log(objA === objB);
+  console.log(objA.toString() == objB.toString());
+  console.log(objA.toString() === objB.toString());
+})();
 // =================================
 
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = objA;
-	objB.foo = 'bar';
-	console.log(objA.foo);
-	console.log(objB.foo);
-}());
+(function () {
+  var objA = Object.create({
+    foo: 'foo',
+  });
+  var objB = objA;
+  objB.foo = 'bar';
+  console.log(objA.foo);
+  console.log(objB.foo);
+})();
 // ===================================
 
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = objA;
-	objB.foo = 'bar';
+(function () {
+  var objA = Object.create({
+    foo: 'foo',
+  });
+  var objB = objA;
+  objB.foo = 'bar';
 
-	delete objA.foo;
-	console.log(objA.foo);
-	console.log(objB.foo);
-}());
+  delete objA.foo;
+  console.log(objA.foo);
+  console.log(objB.foo);
+})();
 
 // =======================================
 
-(function() {
-	var array = new Array('100');
-	console.log(array);
-	console.log(array.length);
-}());
+(function () {
+  var array = new Array('100');
+  console.log(array);
+  console.log(array.length);
+})();
 // ==============================
 
 (function () {
@@ -699,24 +698,56 @@ foo01();
   console.log(array.length);
   delete array[10];
   console.log(array.length);
-}());
+})();
 // ==================================
-(function(){
-	var animal = ['cow','horse'];
-		animal.push('cat');
-		animal.push('dog','rat','goat');
-		console.log('animal',animal.length);
+(function () {
+  var animal = ['cow', 'horse'];
+  animal.push('cat');
+  animal.push('dog', 'rat', 'goat');
+  console.log('animal', animal.length);
 })();
 //========================
 
-(function(){
-	var animal = ['cow','horse'];
+(function () {
+  var animal = ['cow', 'horse'];
   animal.push('cat');
-  animal.unshift('dog','rat','goat');
+  animal.unshift('dog', 'rat', 'goat');
   console.log(animal);
 })();
 
+// =============================
 
+(function () {
+  var array = [1, 2, 3, 4, 5];
+  console.log('indexOf(2)', array.indexOf(2));
+  let a = [{ name: 'Ugra' }, { name: 'Ugra' }];
+  console.log('a====>', a.indexOf({ name: 'Ugra' }));
+  console.log([[1], [2], [3], [4]].indexOf([3]));
+  console.log('abcdefgh', 'abcdefgh'.indexOf('e'));
+})();
+
+// =======================
+(function () {
+  var array = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6];
+  console.log('indexOf(2)', array.indexOf(2));
+  console.log('indexOf(2,3)', array.indexOf(2, 2));
+  console.log('indexOf(10)', array.indexOf(2, 10));
+})();
+
+// ==================================
+(function(){
+	var numbers = [2,3,4,8,9,11,13,12,16];
+	var even = numbers.filter(function(element, index){
+		return element % 2 === 0; 
+	});
+	console.log(even);
+
+	var containsDivisibleby3 = numbers.some(function(element, index){
+		return element % 3 === 0;
+	});
+
+	console.log(containsDivisibleby3);	
+})();
 
 
 const appDiv = document.getElementById('app');
