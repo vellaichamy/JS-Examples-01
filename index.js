@@ -622,6 +622,98 @@ foo01();
 	})
 
 	console.log((person)); 
+  console.log(Object.keys(person));
+})();
+// ======================================
+
+(function() {
+	var objA = new Object({foo: "foo"});
+	var objB = new Object({foo: "foo"});
+	console.log(objA == objB);
+	console.log(objA === objB);
+}());
+
+// =====================================
+(function() {
+	var objA = Object.create({
+		foo: 'foo'
+	});
+	var objB = Object.create({
+		foo: 'foo'
+	});
+	console.log('1======>',objA == objB);
+	console.log('2======>',objA === objB);
+}());
+
+// ============================
+
+
+(function() {
+	var objA = Object.create({
+		foo: 'foo'
+	});
+	var objB = objA;
+	console.log(objA == objB);
+	console.log(objA === objB);
+	console.log(objA.toString() == objB.toString());
+	console.log(objA.toString() === objB.toString());
+}());
+// =================================
+
+(function() {
+	var objA = Object.create({
+		foo: 'foo'
+	});
+	var objB = objA;
+	objB.foo = 'bar';
+	console.log(objA.foo);
+	console.log(objB.foo);
+}());
+// ===================================
+
+(function() {
+	var objA = Object.create({
+		foo: 'foo'
+	});
+	var objB = objA;
+	objB.foo = 'bar';
+
+	delete objA.foo;
+	console.log(objA.foo);
+	console.log(objB.foo);
+}());
+
+// =======================================
+
+(function() {
+	var array = new Array('100');
+	console.log(array);
+	console.log(array.length);
+}());
+// ==============================
+
+(function () {
+  var array = new Array('a', 'b', 'c', 'd', 'e');
+  console.log(array.length);
+  array[10] = 'f';
+  console.log(array.length);
+  delete array[10];
+  console.log(array.length);
+}());
+// ==================================
+(function(){
+	var animal = ['cow','horse'];
+		animal.push('cat');
+		animal.push('dog','rat','goat');
+		console.log('animal',animal.length);
+})();
+//========================
+
+(function(){
+	var animal = ['cow','horse'];
+  animal.push('cat');
+  animal.unshift('dog','rat','goat');
+  console.log(animal);
 })();
 
 
