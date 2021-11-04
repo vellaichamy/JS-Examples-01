@@ -532,7 +532,7 @@ function foo() {
 	// function employeeId() {}
 }
 foo();
-console.log(employeeId);
+console.log('foo()=====>',employeeId);
 
 // ==================================================
 var employeeId = 'abc123';
@@ -549,7 +549,7 @@ var employeeId = 'abc123';
 // =============
 var employeeId = 'abc123';
 
-function foo() {
+function foo00() {
 	employeeId();
 	return;
 
@@ -557,7 +557,36 @@ function foo() {
 		console.log('====?',typeof employeeId);
 	}
 }
-foo();
+foo00();
+
+// =============================
+function foo01() {
+	employeeId1();
+	var product = 'Car'; 
+	return;
+
+	function employeeId1() {
+		console.log('product====>0',product);
+	}
+}
+foo01();
+
+// ===========================
+
+(function foo() {
+	bar();
+
+	function bar() {
+		abc();
+		console.log(typeof abc);
+	}
+
+	function abc() {
+		console.log(typeof bar);
+	}
+}());
+
+// ===========================
 
 
 
