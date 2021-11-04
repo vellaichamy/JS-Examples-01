@@ -453,6 +453,14 @@ console.log(Object.isFrozen(employee)); // true
 
 // =========================================================
 
+var z = 1, y = z = typeof y;
+console.log(y);
+(function() {
+  console.log("Hi, I'm IIFE!");
+})();
+// outputs "Hi, I'm IIFE!"
+
+
 
 const appDiv = document.getElementById('app');
 appDiv.innerHTML =
