@@ -459,7 +459,42 @@ console.log(y);
   console.log("Hi, I'm IIFE!");
 })();
 // outputs "Hi, I'm IIFE!"
+// =============================
+// merge two JavaScript Object dynamically
+var person = {
+	name : 'John',
+	age  : 24
+}
 
+var address = {
+	addressLine1 : 'Some Location x',
+	addressLine2 : 'Some Location y',
+	city : 'NewYork'
+} 
+
+// const merge = (toObj, fromObj) => Object.assign(toObj, fromObj);
+
+function merge(toObj, fromObj) {
+  // Make sure both of the parameter is an object
+  if (typeof toObj === 'object' && typeof fromObj === 'object') {
+    for (var pro in fromObj) {
+      // Assign only own properties not inherited properties
+      if (fromObj.hasOwnProperty(pro)) {
+        // Assign property and value
+        toObj[pro] = fromObj[pro];
+      }
+    }
+    return toObj;
+  }else{
+  	throw "Merge function can apply only on object";
+  }
+}
+
+console.log(merge(person , address)); 
+
+ 
+/* Now person should have 5 properties 
+name , age , addressLine1 , addressLine2 , city */
 
 
 const appDiv = document.getElementById('app');
