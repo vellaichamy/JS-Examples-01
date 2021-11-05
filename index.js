@@ -857,6 +857,72 @@ function myFunc() {
 console.log(myFunc());
 console.log(myFunc('a', 'b'));
 console.log(myFunc('a', 'b', 'c', 'd'));
+// ===================
+function Person02(name, age) {
+  this.name = name || 'Ugra';
+  this.age = age || 25;
+  this.displayName = function () {
+    console.log(this.name);
+  };
+}
+
+// Person02.name = "Ugra";
+// Person02.displayName = function(){
+// 	console.log(this.name);
+// }
+
+// var person1 = new Person02('Ugra');
+// 	person1.displayName();
+// 	Person02.displayName();
+
+function passWordMngr() {
+  var password = '12345678';
+  // this.userName = 'Ugra';
+  return {
+    pwd: password,
+  };
+}
+// Block End
+var userInfo = passWordMngr();
+console.log(userInfo.pwd);
+// console.log(userInfo.userName);
+
+var employeeId = 'aq123';
+function Employee() {
+  this.employeeId = 'Ugra';
+}
+console.log(Employee.employeeId);
+
+// =====================================
+var employeeId = 'aq123';
+function Employee02() {
+  this.employeeId = 'qncde';
+}
+console.log(Employee03.employeeId);
+// ===========================
+
+var employeeId = 'aq123';
+
+function Employee03() {
+	this.employeeId = 'abcdef';
+}
+console.log(new Employee03().employeeId);
+Employee03.prototype.employeeId = 'kj182';
+// Employee.prototype.JobId = '1BJKSJ';
+// console.log(new Employee().JobId);
+// console.log(new Employee().employeeId);
+
+var employeeId = 'aq123';
+(function Employee04() {
+	try {
+		throw 'foo123';
+	} catch (employeeId) {
+		console.log('catch',employeeId);
+	}
+	console.log('Outer',employeeId);
+}());
+
+
 
 const appDiv = document.getElementById('app');
 appDiv.innerHTML =
