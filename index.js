@@ -904,7 +904,7 @@ console.log(Employee03.employeeId);
 var employeeId = 'aq123';
 
 function Employee03() {
-	this.employeeId = 'abcdef';
+  this.employeeId = 'abcdef';
 }
 console.log(new Employee03().employeeId);
 Employee03.prototype.employeeId = 'kj182';
@@ -914,15 +914,20 @@ Employee03.prototype.employeeId = 'kj182';
 
 var employeeId = 'aq123';
 (function Employee04() {
-	try {
-		throw 'foo123';
-	} catch (employeeId) {
-		console.log('catch',employeeId);
-	}
-	console.log('Outer',employeeId);
-}());
+  try {
+    throw 'foo123';
+  } catch (employeeId) {
+    console.log('catch', employeeId);
+  }
+  console.log('Outer', employeeId);
+})();
 
-
+// =================================
+(function greetNewCustomer() {
+  console.log('Hello ' + this.name);
+}.bind({
+  name: 'Ugra',
+})());
 
 const appDiv = document.getElementById('app');
 appDiv.innerHTML =
