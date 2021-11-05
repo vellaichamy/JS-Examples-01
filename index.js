@@ -735,19 +735,89 @@ foo01();
 })();
 
 // ==================================
-(function(){
-	var numbers = [2,3,4,8,9,11,13,12,16];
-	var even = numbers.filter(function(element, index){
-		return element % 2 === 0; 
-	});
-	console.log(even);
+(function () {
+  var numbers = [2, 3, 4, 8, 9, 11, 13, 12, 16];
+  var even = numbers.filter(function (element, index) {
+    return element % 2 === 0;
+  });
+  console.log(even);
 
-	var containsDivisibleby3 = numbers.some(function(element, index){
-		return element % 3 === 0;
-	});
+  var containsDivisibleby3 = numbers.some(function (element, index) {
+    return element % 3 === 0;
+  });
 
-	console.log(containsDivisibleby3);	
+  console.log(containsDivisibleby3);
 })();
+// ===================================
+(function () {
+  var list = ['foo', 'bar', 'john', 'ritz'];
+  console.log(list.slice(1));
+  console.log(list.slice(1, 3));
+  console.log(list.slice());
+  console.log(list.slice(2, 2));
+  console.log(list);
+})();
+
+// ================================
+(function () {
+  var arrayNumb = [2, 8, 15, 16, 23, 42];
+  arrayNumb.sort();
+  console.log(arrayNumb);
+})();
+
+// ====================================
+function funcA() {
+  console.log('funcA ', this);
+  (function innerFuncA1() {
+    console.log('innerFunc1', this);
+    (function innerFunA11() {
+      console.log('innerFunA11', this);
+    })();
+  })();
+}
+
+console.log(funcA());
+
+// ================================
+var obj02 = {
+  message: 'Hello',
+  innerMessage: !(function () {
+    console.log(this);
+  })(),
+};
+
+// console.log(obj02.innerMessage);
+
+var obj03 = {
+  message: 'Hello',
+  innerMessage: function () {
+    return this.message;
+  },
+};
+
+console.log(obj03.innerMessage());
+
+// =================================
+var obj04 = {
+  message: 'Hello',
+  innerMessage: function () {
+    // (function () {
+    //   console.log(this.message);
+    // }());
+  },
+};
+console.log(obj04.innerMessage());
+// ===========================
+var obj04 = {
+  message: 'Hello',
+  innerMessage: function () {
+  	var self = this;
+    // (function () {
+    //   console.log(self.message);
+    // }());
+  }
+};
+console.log(obj04.innerMessage());
 
 
 const appDiv = document.getElementById('app');
