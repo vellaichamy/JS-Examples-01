@@ -811,14 +811,52 @@ console.log(obj04.innerMessage());
 var obj04 = {
   message: 'Hello',
   innerMessage: function () {
-  	var self = this;
+    var self = this;
     // (function () {
     //   console.log(self.message);
     // }());
-  }
+  },
 };
 console.log(obj04.innerMessage());
 
+// ========================
+function myFunc() {
+  console.log(this.message);
+}
+myFunc.message = 'Hello Ugra';
+
+// console.log(myFunc());
+// ===================================
+
+function myFunc() {
+  console.log('Inner', myFunc.message);
+}
+myFunc.message = 'Hello Ugra';
+
+console.log('Outer', myFunc());
+// ====================
+
+function myFunc() {
+  myFunc.message = 'Hello Ugra';
+  console.log(myFunc.message);
+}
+console.log(myFunc());
+// ==============================
+
+function myFunc01(param1, param2) {
+  console.log(myFunc.length);
+}
+console.log('1====?', myFunc01());
+console.log('2====?', myFunc01('a', 'b'));
+console.log('3====?', myFunc01('a', 'b', 'c', 'd'));
+// ===============================
+
+function myFunc() {
+  console.log(arguments.length);
+}
+console.log(myFunc());
+console.log(myFunc('a', 'b'));
+console.log(myFunc('a', 'b', 'c', 'd'));
 
 const appDiv = document.getElementById('app');
 appDiv.innerHTML =
