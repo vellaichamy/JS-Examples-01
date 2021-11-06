@@ -51,23 +51,35 @@ console.log(isFinite(Infinity));
 // ========================
 
 const outer = () => {
+  var temp = 'Vellaichamy';
   return () => {
-    console.log('Inner called...');
-    return 'Inner called...';
+    console.log('Inner called...', temp);
+    return 'Inner called...' + temp;
   };
 };
 const cl = outer();
 cl();
 // ========================
-
-const addCounter = () => {
+// const addCounter = () => {
+//   let counter = 0;
+//   // return () => {
+//   // counter++;
+//   return counter;
+//   // };
+// };
+// const addCounter = 
+ function addCounter() {
   let counter = 0;
   return () => {
-    counter++;
-    return counter;
+  counter++;
+  return counter;
   };
 };
+console.log(typeof(addCounter))
 const cl1 = addCounter();
+console.log(cl1());
+console.log(cl1());
+console.log(cl1());
 console.log(cl1());
 // ========================
 // Currying
